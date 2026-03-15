@@ -1,0 +1,17 @@
+services:
+  whatsappbot:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '8019:8088'
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    networks:
+      - kwilax_network
+
+networks:
+  kwilax_network:
+    driver: bridge
+    external: true
