@@ -16,7 +16,8 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
     NODE_ENV=production
 
-COPY . .
+COPY package*.json ./
 RUN npm install
+COPY . .
 
 CMD ["node", "connect.js"]
